@@ -1,0 +1,21 @@
+#:kivy 2.0
+
+<SessionScreen>:
+    name: 'session'
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        spacing: 12
+        Title:
+            text: "Hola Luis"
+        UpdatingCurrentCredits:
+            color: 'red'
+            text: '0.0'
+        Button:
+            text: 'End'
+            on_release: root.goBack()

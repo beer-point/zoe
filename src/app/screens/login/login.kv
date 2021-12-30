@@ -1,0 +1,16 @@
+#:kivy 2.0
+
+<LoginScreen>:
+    name: 'login'
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        spacing: 12
+        Button:
+            text: 'Login!'
+            on_release: root.login()
