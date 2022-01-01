@@ -16,10 +16,10 @@ class ValveController(IValveController):
         self._is_valve_open = False
 
     def open(self):
-        print("Opening valve")
+        print("opening valve")
 
     def close(self):
-        print("Opening valve")
+        print("closing valve")
 
     def is_valve_open(self) -> bool:
         return self._is_valve_open

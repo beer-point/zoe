@@ -4,7 +4,7 @@ from models.beer import Beer
 
 
 class BeerFlowController:
-    """Controlls and counts the flow of beer"""
+    """Controlls all modules involve in pouring beer, such as the flow and valve, also counts the flow of beer"""
 
     def __init__(self):
         self._flow_session = None
@@ -18,6 +18,9 @@ class BeerFlowController:
     def end_session(self):
         self._valve_controller.close()
         self._flow_session.end()
+        session = self._flow_session
+        self._flow_session = None
+        return session
 
     def get_flowed_beer(self):
         if not self._flow_session == None:

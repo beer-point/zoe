@@ -34,16 +34,15 @@ class UpdatingCurrentCredits(Label):
     def __init__(self, **kw):
         super().__init__(**kw)
 
-        def updateText(a):
-            print('calling update text')
-            print(self.parent.parent.beer_flow_controller.get_flowed_beer())
-            beer_flow = self.parent.parent.beer_flow_controller.get_flowed_beer()
-            virtual_available_money = available_money - \
-                (beer_flow * beer_cost_per_lt)
+        def updateText(self):
+            if self.parent.parent.beer_flow_controller.has_active_session:
+                beer_flow = self.parent.parent.beer_flow_controller.get_flowed_beer()
+                virtual_available_money = available_money - \
+                    (beer_flow * beer_cost_per_lt)
 
-            if virtual_available_money <= 0:
-                virtual_available_money = 0.0
+                if virtual_available_money <= 0:
+                    virtual_available_money = 0.0
 
-            self.text = "{:10.0f}".format(virtual_available_money)
+                self.text = "{:10.0f}".format(virtual_available_money)
 
         Clock.schedule_interval(updateText, 0.1)
