@@ -1,8 +1,14 @@
-from turtle import width
+from kivy.uix import *
+from kivymd.uix import *
+from app.screens.test.test import TestScreen
 from app.screens.session.session import SessionScreen
 from app.screens.login.login import LoginScreen
+
 from kivy.uix.screenmanager import ScreenManager
-from kivy.app import App
+
+
+# from kivy.app import App
+from kivymd.app import MDApp
 
 
 from kivy.config import Config
@@ -14,5 +20,5 @@ class WindowManager(ScreenManager):
     pass
 
 
-class BeerApp(App):
+class BeerApp(MDApp):
     pass

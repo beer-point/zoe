@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 matplotlib = "*"
 kivy = "*"
+kivymd = "*"
+qrcode = "*"
 
 [dev-packages]
 

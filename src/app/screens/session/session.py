@@ -34,7 +34,7 @@ class UpdatingCurrentCredits(Label):
     def __init__(self, **kw):
         super().__init__(**kw)
 
-        def updateText(self):
+        def updateText(a):
             if self.parent.parent.beer_flow_controller.has_active_session:
                 beer_flow = self.parent.parent.beer_flow_controller.get_flowed_beer()
                 virtual_available_money = available_money - \

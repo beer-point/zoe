@@ -11,6 +11,29 @@
                 pos: self.pos
         orientation: 'vertical'
         spacing: 12
+        MDFloatingActionButton:
+            icon: "plus"
+            opposite_colors: True
+            elevation: 8
+            md_bg_color: 1, 0, 0, 1
+        MDFlatButton:
+            text: "MDFlatButton"
+            pos_hint: {"center_x": .5}
+
+        MDRaisedButton:
+            text: "MDRaisedButton"
+            elevation: 8
+            opposite_colors: True
+            pos_hint: {"center_x": .5}
+
+        MDRectangleFlatButton:
+            text: "MDRectangleFlatButton"
+            pos_hint: {"center_x": .5}
+
+        MDRectangleFlatIconButton:
+            text: "MDRectangleFlatIconButton"
+            icon: "language-python"
+            pos_hint: {"center_x": .5}
         Button:
             text: 'Login!'
             on_release: root.login()

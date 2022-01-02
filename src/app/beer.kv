@@ -2,12 +2,15 @@
 
 #:import LoginScreen app.screens.login.login
 #:import SessionScreen app.screens.session.session
+#:import TestScreen app.screens.test.test
 
 #:include app/screens/login/login.kv
 #:include app/screens/session/session.kv
+#:include app/screens/test/test.kv
 
 #:include app/widgets/typography/typography.kv
 
 ScreenManager:
+    TestScreen:
     LoginScreen:
     SessionScreen:
