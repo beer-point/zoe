@@ -3,6 +3,7 @@
 <SessionScreen>:
     name: 'session'
     BoxLayout:
+        padding:[16,16,16,16]
         canvas:
             Color:
                 rgba: 1, 1, 1, 1
@@ -12,10 +13,40 @@
         orientation: 'vertical'
         spacing: 12
         Title:
-            text: "Hola Luis"
-        UpdatingCurrentCredits:
-            color: 'red'
-            text: '0.0'
-        Button:
-            text: 'End'
-            on_release: root.goBack()
+            text_size: self.width, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+            text:   "¡Hola " + root.parent.user.name + "!" if root.parent is not None and root.parent.user is not None else ""
+            halign: 'center'
+            valign: 'middle'
+        Subtitle:
+            text_size: self.width, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+            text:   "Tu saldo es de: "
+            halign: 'center'
+            valign: 'middle'
+
+        Label:
+            color: 'black' if root.virtual_balance > 50 else 'red'
+            font_size: 220
+            text: '$' + '%.2f' % root.virtual_balance
+            text_align: 'center'
+            halign: 'center'
+            text_size: self.width, None
+
+        MDFillRoundFlatButton:
+            text: 'Cerrar sessión'
+            disabled: root.is_ending_session
+            on_release: root.end_session()
+            text_align: 'center'
+            halign: 'center'
+            width: root.width - 32
+            text_size: self.width, None
+            # size_hint: 1.0, None
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            line_color: 1, 0, 0, 1
+            font_size: 48
+            opposite_colors: True
+            md_bg_color: 1, 0, 0, 1

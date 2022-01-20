@@ -39,6 +39,10 @@ class FlowPulseSubject:
     def remove(self, observer: FlowPulseObserver):
         self.observers.remove(observer)
 
+    def remove_all(self):
+        for observer in self.observers:
+            self.observers.remove(observer)
+
     def unsubscribe_to_gpio_pulse(self):
         if not self._gpio == None:
             self._gpio.close()

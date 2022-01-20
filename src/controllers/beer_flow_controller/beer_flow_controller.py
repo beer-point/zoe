@@ -1,6 +1,5 @@
 from controllers.beer_flow_controller.flow_session import FlowSession
 from controllers.beer_flow_controller.valve_controller import ValveController
-from models.beer import Beer
 
 
 class BeerFlowController:
@@ -21,6 +20,12 @@ class BeerFlowController:
         session = self._flow_session
         self._flow_session = None
         return session
+
+    def close_valve(self):
+        self._valve_controller.close()
+
+    def get_session(self):
+        return self._flow_session
 
     def get_flowed_beer(self):
         if not self._flow_session == None:

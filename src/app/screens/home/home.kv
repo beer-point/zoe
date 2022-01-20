@@ -1,0 +1,53 @@
+#:kivy 2.0
+
+<HomeScreen>:
+    name: 'home'
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: 255, 255, 255, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        orientation: 'vertical'
+        spacing: 8
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            AsyncImage:
+                id: beer_img
+                allow_stretch: False
+                keep_ratio: True
+                size_hint: 0.4, 1
+                source: root.manager.station.beer.photo_url
+            MDBoxLayout:
+                size_hint: 0.6, 1
+                orientation: 'vertical'
+                MDBoxLayout:
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: 16
+                    Subtitle:
+                        text_size: self.width, None
+                        size_hint: 1, None
+                        height: self.texture_size[1]
+                        text: root.manager.station.beer.name
+                    MDBoxLayout:
+                        size_hint: 0.3, None
+                        Caption:
+                            text: "ABV 6.7%"
+                        Caption:
+                            text: "$200 / lt"
+                    Body:
+                        text_size: self.width, None
+                        size_hint: 1, None
+                        height: self.texture_size[1]
+                        text:  root.manager.station.beer.description
+                MDBoxLayout:
+                
+        MDRectangleFlatButton:
+            text: 'Iniciar session'
+            on_release: root.go_to_login()
+   
+        
+        

@@ -8,6 +8,8 @@ matplotlib = "*"
 kivy = "*"
 kivymd = "*"
 qrcode = "*"
+uuid = "*"
+firebase-admin = "*"
 
 [dev-packages]
 

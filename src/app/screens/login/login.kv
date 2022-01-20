@@ -5,35 +5,34 @@
     BoxLayout:
         canvas:
             Color:
-                rgba: 1, 1, 1, 1
+                rgba: 255, 255, 255, 1
             Rectangle:
                 size: self.size
                 pos: self.pos
         orientation: 'vertical'
-        spacing: 12
-        MDFloatingActionButton:
-            icon: "plus"
-            opposite_colors: True
-            elevation: 8
-            md_bg_color: 1, 0, 0, 1
-        MDFlatButton:
-            text: "MDFlatButton"
-            pos_hint: {"center_x": .5}
-
-        MDRaisedButton:
-            text: "MDRaisedButton"
-            elevation: 8
-            opposite_colors: True
-            pos_hint: {"center_x": .5}
+        spacing: 8
+        
+        Title:
+            text_size: self.width, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+            text:   "¡Escanea el qr desde nuestra app y comenza a servirte!" if not root.is_generating_sync_code else ""
+            halign: 'center'
+            valign: 'middle'
 
         MDRectangleFlatButton:
-            text: "MDRectangleFlatButton"
-            pos_hint: {"center_x": .5}
-
-        MDRectangleFlatIconButton:
-            text: "MDRectangleFlatIconButton"
-            icon: "language-python"
-            pos_hint: {"center_x": .5}
-        Button:
-            text: 'Login!'
+            text: 'login'
             on_release: root.login()
+            halign: 'center'
+            valign: 'middle'
+        MDSpinner:
+            size_hint: None, None
+            size: dp(46), dp(46)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            active: True if root.is_generating_sync_code else False
+        Image:
+            id: qr_image
+            nocache:True
+            allow_stretch: True
+            source: '' if root.is_generating_sync_code else root.img
+        

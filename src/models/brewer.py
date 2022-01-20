@@ -1,29 +1,30 @@
 from firebase_admin import firestore
 
 
-class User:
-    def __init__(self, name, balance, ref=None):
-        self.name = name
-        self.balance = balance
+class Brewer:
+    def __init__(self, name, photo_url, ref=None):
+        self.name: str = name
+        self.photo_url: str = photo_url
         self.ref: firestore.firestore.DocumentReference = ref
 
     @staticmethod
     def from_dict(source):
         if source is not None and isinstance(source, dict):
-            return User(
+
+            return Brewer(
                 source.get('name', ''),
-                source.get('balance', 0),
+                source.get('photoUrl', ''),
                 source.get('ref', None)
             )
         return None
 
     def to_dict(self):
-        return {"name": self.name, "balance": self.balance}
+        return {"name": self.name, "photoUrl": self.photo_url}
 
     def __repr__(self):
         return(
-            f'User(\
+            f'Brewer(\
                 name={self.name}, \
-                balance={self.balance}, \
+                photo_url={self.photo_url}, \
             )'
         )
